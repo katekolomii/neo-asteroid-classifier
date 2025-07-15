@@ -2,6 +2,9 @@
 
 This machine learning project classifies potentially hazardous asteroids using NASA’s Near-Earth Object (NEO) dataset. The goal is to predict hazard status based on features such as absolute magnitude, miss distance, and relative velocity.
 
+📍 **Live Demo**:  
+👉 [Try it on Streamlit →](https://asteroid-classifier.streamlit.app/)
+
 This project was developed as part of the **Introduction to Machine Learning** course offered by the **Stanford Pre-Collegiate Summer Institutes**.
 
 ---
