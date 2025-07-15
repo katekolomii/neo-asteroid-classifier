@@ -57,7 +57,7 @@ transformed_inputs = np.log1p ([
 
 # --- Prediction Logic ---
 if submit:
-    features = np.array([[transformed_inputs, magnitude]])
+    features = np.array([[*transformed_inputs, magnitude]])
     prediction = model.predict(features)[0]
 
     st.subheader("🛰️ Prediction Result")
