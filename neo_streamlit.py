@@ -49,11 +49,11 @@ with st.form("neo_form"):
 # --- Transform Inputs ---
 # Apply log1p to match training preprocessing
 
-transformed_inputs = np.log1p {
+transformed_inputs = np.log1p ([
     diameter,
     velocity,
     miss_distance
-}
+])
 
 # --- Prediction Logic ---
 if submit:
