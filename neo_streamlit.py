@@ -39,16 +39,25 @@ st.caption("Predict whether a Near-Earth Object is potentially hazardous based o
 with st.form("neo_form"):
     st.subheader("Enter NEO Parameters")
 
-    diameter = st.number_input("Estimated Diameter (log-transformed)", min_value=0.0, value=1.0, format="%.2f")
-    velocity = st.number_input("Relative Velocity (log-transformed)", min_value=0.0, value=2.0, format="%.2f")
-    miss_distance = st.number_input("Miss Distance (log-transformed)", min_value=0.0, value=3.0, format="%.2f")
+    diameter = st.number_input("Estimated Diameter (km)", min_value=0.0, value=1.0, format="%.2f")
+    velocity = st.number_input("Relative Velocity (km/s)", min_value=0.0, value=2.0, format="%.2f")
+    miss_distance = st.number_input("Miss Distance (km)", min_value=0.0, value=3.0, format="%.2f")
     magnitude = st.number_input("Absolute Magnitude", min_value=0.0, value=22.0, format="%.2f")
 
     submit = st.form_submit_button("Predict 🚀")
 
+# --- Transform Inputs ---
+# Apply log1p to match training preprocessing
+
+transformed_inputs = np.log1p {
+    diameter,
+    velocity,
+    miss_distance
+}
+
 # --- Prediction Logic ---
 if submit:
-    features = np.array([[diameter, velocity, miss_distance, magnitude]])
+    features = np.array([[transformed_inputs, magnitude]])
     prediction = model.predict(features)[0]
 
     st.subheader("🛰️ Prediction Result")
